@@ -1,0 +1,46 @@
+{{define "html-header"}}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{.Title}}</title>
+    <meta name="description" content="{{.Description}}"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1"/>
+    <meta property="og:url" content="{{.Config.URL | absURL}}"/>
+    <meta property="og:site_name" content="{{.Config.Site.Title}}"/>
+    <meta property="og:locale" content="ja_JP"/>
+    <meta property="og:title" content="{{.Title}}"/>
+</head>
+<body>
+{{end}}
+
+{{define "page-header"}}
+<div style="background-color: aqua; font-size: large; font-weight: bold;">
+    ヘッダー
+</div>
+{{end}}
+
+{{define "navigation"}}
+{{end}}
+
+{{define "page-footer"}}
+<div style="background-color: aquamarine; text-align: center; font-size:x-small;">
+    フッター &copy;@tamacjp
+</div>
+{{end}}
+
+{{define "html-footer"}}
+</body>
+</html>
+{{end}}
+
+{{define "header"}}
+{{template "html-header" .}}
+{{template "page-header" .}}
+{{template "navigation" .}}
+{{end}}
+
+{{define "footer"}}
+{{template "page-footer" .}}
+{{template "html-footer" .}}
+{{end}}
