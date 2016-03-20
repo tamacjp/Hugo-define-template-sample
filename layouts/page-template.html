@@ -16,13 +16,13 @@
 
 {{define "page-header"}}
 <div style="background-color: aqua; font-size: large; font-weight: bold;">
-    ヘッダー
+    <a href="/">ヘッダー</a>
 </div>
 {{end}}
 
 {{define "navigation"}}
-{{.Config.Site.Title}}
-{{if .Config.Section}}&gt;&gt; {{.Config.Section}}{{end}}
+<a href="/">{{.Config.Site.Title}}</a>
+{{if .Config.Section}}&gt;&gt; <a href="/{{.Config.Section}}/">{{.Config.Section}}</a>{{end}}
 {{if .Title}}&gt;&gt; {{.Title}}{{end}}
 {{end}}
 
