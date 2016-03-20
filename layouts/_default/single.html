@@ -1,6 +1,14 @@
+<!-- デフォルト single.html -->
+
+<!-- このページで使う名前空間（pipeline）の定義 -->
 {{$pipeline := (dict "Config" . "Title" .Title "Description" .Description)}}
-{{template "header" $pipeline}}
 
-{{.Content}}
+<!--  共通ヘッダ -->
+{{template "common-header" $pipeline}}
 
-{{template "footer" $pipeline}}
+<!-- HTMLコンテンツ本体 〜ここから〜 -->
+{{.Content}}<!-- content配下の .md のコンテンツ本体 -->
+<!-- HTMLコンテンツ本体 〜ここまで〜 -->
+
+<!-- 共通フッタ -->
+{{template "common-footer" $pipeline}}

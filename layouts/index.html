@@ -1,7 +1,13 @@
-{{$pipeline := (dict "Config" . "Description" "某社のサイト")}}
+<!-- トップページ index.html -->
+
+<!-- このページで使う名前空間（pipeline）の定義 -->
+{{$pipeline := (dict "Config" . "Description" "某社のサイト")}}<!-- ページタイトル Title は不要 -->
+
+<!-- ナビゲーションバーがいらないので共通ヘッダでなくHTMLヘッダとページヘッダだけ明示的に -->
 {{template "html-header" $pipeline}}
 {{template "page-header" $pipeline}}
 
+<!-- HTMLコンテンツ本体 〜ここから〜 -->
 トップページです
 
 <p>
@@ -13,6 +19,8 @@
 <p>
     <a href="diary/">日記</a>
 </p>
+<!-- HTMLコンテンツ本体 〜ここまで〜 -->
 
+<!-- ヘッダに対応するフッタ（共通フッタでも中身は同じ） -->
 {{template "page-footer" $pipeline}}
 {{template "html-footer" $pipeline}}

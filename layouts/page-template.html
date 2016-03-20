@@ -1,10 +1,11 @@
+<!-- HTMLヘッダ <html><head></head><body>まで -->
 {{define "html-header"}}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
     <title>{{if .Title}}{{.Title}} | {{end}}{{.Config.Site.Title}}</title>
-    <meta name="description" content="{{.Description}}"/>
+    {{if .Description}}<meta name="description" content="{{.Description}}"/>{{end}}
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1"/>
     <meta property="og:url" content="{{.Config.URL | absURL}}"/>
     <meta property="og:site_name" content="{{.Config.Site.Title}}"/>
@@ -14,36 +15,42 @@
 <body>
 {{end}}
 
+<!-- ページヘッダ 全ページ共通のヘッダ部分 -->
 {{define "page-header"}}
 <div style="background-color: aqua; font-size: large; font-weight: bold;">
     <a href="/">ヘッダー</a>
 </div>
 {{end}}
 
+<!-- ナビゲーションバー トップページなどサイトツリー外のページにはないことも -->
 {{define "navigation"}}
 <a href="/">{{.Config.Site.Title}}</a>
 {{if .Config.Section}}&gt;&gt; <a href="/{{.Config.Section}}/">{{.Config.Section}}</a>{{end}}
 {{if .Title}}&gt;&gt; {{.Title}}{{end}}
 {{end}}
 
+<!-- ページフッタ 全ページ共通のフッタ部分 -->
 {{define "page-footer"}}
 <div style="background-color: aquamarine; text-align: center; font-size:x-small;">
     フッター &copy;@tamacjp
 </div>
 {{end}}
 
+<!-- HTMLフッタ </body></html> -->
 {{define "html-footer"}}
 </body>
 </html>
 {{end}}
 
-{{define "header"}}
+<!-- 共通ヘッダ HTMLヘッダ + ページヘッダ + ナビゲーションバー -->
+{{define "common-header"}}
 {{template "html-header" .}}
 {{template "page-header" .}}
 {{template "navigation" .}}
 {{end}}
 
-{{define "footer"}}
+<!-- 共通フッタ ページフッタ + HTMLフッタ -->
+{{define "common-footer"}}
 {{template "page-footer" .}}
 {{template "html-footer" .}}
 {{end}}

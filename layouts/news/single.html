@@ -1,9 +1,17 @@
-{{$Title := (printf "news %s" (dateFormat "2006-01-02" .Date))}}
+<!-- newsセクション固有の single.html -->
+
+<!-- このページで使う名前空間（pipeline）の定義 -->
+{{$Title := (printf "news %s" (dateFormat "2006-01-02" .Date))}}<!-- 固有のページタイトル -->
 {{$pipeline := (dict "Config" . "Title" $Title "Description" .Description)}}
-{{template "header" $pipeline}}
 
+<!--  共通ヘッダ -->
+{{template "common-header" $pipeline}}
+
+<!-- HTMLコンテンツ本体 〜ここから〜 -->
 <div style="width: 200px; border: 1px solid gray; paddin: 20px; margin: 20px auto; text-align: center;">
-    {{.Content}}
+    {{.Content}}<!-- セクション固有のコンテンツ表示方法 -->
 </div>
+<!-- HTMLコンテンツ本体 〜ここまで〜 -->
 
-{{template "footer" $pipeline}}
+<!-- 共通フッタ -->
+{{template "common-footer" $pipeline}}

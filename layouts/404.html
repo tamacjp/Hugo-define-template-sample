@@ -1,8 +1,16 @@
-{{$pipeline := (dict "Config" .)}}
+<!-- トップページ index.html -->
+
+<!-- このページで使う名前空間（pipeline）の定義 -->
+{{$pipeline := (dict "Config" .)}}<!-- ページタイトル Title もページ概要Description も不要 -->
+
+<!-- index.html 同様ナビゲーションバーなしのヘッダ -->
 {{template "html-header" $pipeline}}
 {{template "page-header" $pipeline}}
 
+<!-- HTMLコンテンツ本体 〜ここから〜 -->
 404 Not found
+<!-- HTMLコンテンツ本体 〜ここまで〜 -->
 
+<!-- ヘッダに対応するフッタ -->
 {{template "page-footer" $pipeline}}
 {{template "html-footer" $pipeline}}

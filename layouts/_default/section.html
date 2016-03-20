@@ -1,6 +1,13 @@
-{{$pipeline := (dict "Config" . "Title" .Title "Description" .Description)}}
-{{template "header" $pipeline}}
+<!-- デフォルト section.html（list.html） -->
 
+<!-- このページで使う名前空間（pipeline）の定義 -->
+{{$pipeline := (dict "Config" . "Title" .Title "Description" .Description)}}
+
+<!--  共通ヘッダ -->
+{{template "common-header" $pipeline}}
+
+<!-- HTMLコンテンツ本体 〜ここから〜 -->
+<!-- セクションリストの表示方法に名前付け（section-list） -->
 {{define "section-list"}}
 <ul>
     {{range .Config.Data.Pages}}
@@ -8,6 +15,9 @@
     {{end}}
 </ul>
 {{end}}
+<!-- 名前付けした section-list を表示 -->
 {{template "section-list" $pipeline}}
+<!-- HTMLコンテンツ本体 〜ここまで〜 -->
 
-{{template "footer" $pipeline}}
+<!-- 共通フッタ -->
+{{template "common-footer" $pipeline}}
