@@ -1,0 +1,6 @@
+{{$pipeline := (dict "Config" . "Title" .Title "Description" .Description)}}
+{{template "header" $pipeline}}
+
+{{.Content}}
+
+{{template "footer" $pipeline}}

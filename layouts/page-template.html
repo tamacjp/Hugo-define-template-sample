@@ -3,7 +3,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>{{.Title}}</title>
+    <title>{{if .Title}}{{.Title}} | {{end}}{{.Config.Site.Title}}</title>
     <meta name="description" content="{{.Description}}"/>
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1"/>
     <meta property="og:url" content="{{.Config.URL | absURL}}"/>
@@ -21,6 +21,9 @@
 {{end}}
 
 {{define "navigation"}}
+{{.Config.Site.Title}}
+{{if .Config.Section}}&gt;&gt; {{.Config.Section}}{{end}}
+{{if .Title}}&gt;&gt; {{.Title}}{{end}}
 {{end}}
 
 {{define "page-footer"}}

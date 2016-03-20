@@ -1,0 +1,9 @@
+{{$Title := (printf "news %s" (dateFormat "2006-01-02" .Date))}}
+{{$pipeline := (dict "Config" . "Title" $Title "Description" .Description)}}
+{{template "header" $pipeline}}
+
+<div style="width: 200px; border: 1px solid gray; paddin: 20px; margin: 20px auto; text-align: center;">
+    {{.Content}}
+</div>
+
+{{template "footer" $pipeline}}
