@@ -46,3 +46,12 @@ __共通のコードはなるべく書かない。一箇所にまとめる（DRY
 * セクション固有の _section.html_ にあたる _section/SECTION.html_（[例](layouts/section/tech.html)）は
     デフォルトの [_section.html_](layouts/_default/section.html) で定義した `"section-list"` を用いて
     リスト表示する部分は再記述することなく固有の表示も実現できる
+
+
+## partial HTML と {{define}} ##
+
+* partial HTML はパーツだけを個々のHTMLファイルにして `{{partial}}` で呼び出す
+* `{{define}}` で定義したパーツは [layouts 配下のどこに配置してもよく](https://github.com/tamacjp/Hugo-define-template#readme)、
+    `{{template}}` で呼び出す
+* 名前空間（pipeline）の指定については変わりがない（と思われる）
+* だったらファイルをバラバラと分けずひとつのHTMLやデフォルトのテンプレートの中に `{{define}}` 定義を置けたほうがいんでね？と思う次第
