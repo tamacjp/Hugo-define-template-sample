@@ -1,0 +1,13 @@
+{{$pipeline := (dict "Config" . "Title" .Title "Description" .Description)}}
+{{template "header" $pipeline}}
+
+{{define "section-list"}}
+<ul>
+    {{range .Config.Data.Pages}}
+    <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+    {{end}}
+</ul>
+{{end}}
+{{template "section-list" $pipeline}}
+
+{{template "footer" $pipeline}}

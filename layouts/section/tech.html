@@ -1,0 +1,10 @@
+{{$pipeline := (dict "Config" . "Title" .Title "Description" .Description)}}
+{{template "header" $pipeline}}
+
+<p>
+    技術ブログです
+</p>
+
+{{template "section-list" $pipeline}}
+
+{{template "footer" $pipeline}}
